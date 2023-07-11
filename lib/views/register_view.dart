@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:lbjjn_app/services/user_services.dart';
 
 @RoutePage()
 class RegisterView extends StatefulWidget {
@@ -20,11 +21,14 @@ class _RegisterViewState extends State<RegisterView> {
 
   bool _isEmailValid = true;
 
-  void _register() {
+  void _register() async {
     if (_formKey.currentState!.validate()) {
-      // Realizar la lógica de registro aquí
-      // Por ejemplo, enviar los datos al servidor o guardarlos localmente
-      // y mostrar una alerta de éxito o navegar a la siguiente pantalla
+      var res = await UserServices().crearUsuario(
+          _emailController.text.toString(),
+          _nameController.text.toString(),
+          _lastNameController.text.toString(),
+          _passwordController.text.toString(),
+          _phoneController.text.toString());
     }
   }
 

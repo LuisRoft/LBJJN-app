@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../routers/app_route.gr.dart';
-
 @RoutePage()
 class LoginView extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
